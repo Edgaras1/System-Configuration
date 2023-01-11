@@ -101,6 +101,7 @@
     powertop
     nixpkgs-fmt #nix formatter
 
+    flameshot
     keepassxc
     mpv
   ];
