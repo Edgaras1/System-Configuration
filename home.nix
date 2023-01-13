@@ -5,7 +5,7 @@
   home.homeDirectory = "/home/edgaras";
 
   home.packages = with pkgs;[
-    playerctl #control media
+    mpc-cli
   ];
 
   programs.ncmpcpp = {
