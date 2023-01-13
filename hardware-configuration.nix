@@ -5,7 +5,8 @@
 
 {
   imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
+    [
+      (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
@@ -13,14 +14,27 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "ntfs" ];
+
+  sound.enable = true;
+  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.support32Bit = true;
+
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/333b8e2f-243c-4ace-834b-c44479efbd18";
+    {
+      device = "/dev/disk/by-uuid/333b8e2f-243c-4ace-834b-c44479efbd18";
       fsType = "ext4";
     };
 
   fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/54B8-EE1D";
+    {
+      device = "/dev/disk/by-uuid/54B8-EE1D";
       fsType = "vfat";
+    };
+
+  fileSystems."/home/edgaras/HDD" =
+    { device = "/dev/disk/by-label/HDD";
+      fsType = "ntfs3"; 
+      options = [ "rw"];
     };
 
   swapDevices = [ ];
