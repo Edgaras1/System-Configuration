@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
 {
+  nix = {
+    package = pkgs.nixFlakes;
+    settings.experimental-features = [ "nix-command" "flakes" ];
+  };
+
   imports =
     [
       # Include the results of the hardware scan.
@@ -90,14 +95,23 @@
     maestral
     logseq
 
+    cmake
+
     #entertainment
     streamlink
     streamlink-twitch-gui-bin
     chatterino2
-    
+    strawberry
+
     stremio
 
+    #make shell for these?
+    rustc
+    cargo
+    python3
+    gnome.pomodoro
 
+    gparted
     powertop
     nixpkgs-fmt #nix formatter
 
@@ -109,7 +123,6 @@
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" ]; })
   ];
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
