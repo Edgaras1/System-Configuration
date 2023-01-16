@@ -32,12 +32,16 @@
     };
 
   fileSystems."/home/edgaras/HDD" =
-    { device = "/dev/disk/by-label/HDD";
-      fsType = "ntfs3"; 
-      options = [ "rw"];
+    {
+      device = "/dev/disk/by-label/HDD";
+      fsType = "ntfs3";
+      options = [ "rw" ];
     };
 
-  swapDevices = [ ];
+  swapDevices = [{
+    device = "/swapfile";
+    size = 8 * 1024;
+  }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
