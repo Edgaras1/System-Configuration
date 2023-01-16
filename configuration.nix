@@ -88,7 +88,6 @@
     conky
     rofi
     starship
-
     nodejs
     xorg.xwininfo #stremiofix
 
@@ -97,11 +96,15 @@
 
     cmake
 
+    tor-browser-bundle-bin
+
     #entertainment
     streamlink
     streamlink-twitch-gui-bin
     chatterino2
     strawberry
+
+    cataclysm-dda
 
     stremio
 
