@@ -19,6 +19,8 @@
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.support32Bit = true;
 
+  services.gvfs.enable = true; #usb mounting
+  
   fileSystems."/" =
     {
       device = "/dev/disk/by-uuid/333b8e2f-243c-4ace-834b-c44479efbd18";
